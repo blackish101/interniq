@@ -14,10 +14,10 @@ services:
       npm ci --prefix server &&
       npm ci --prefix client &&
       npm run build --prefix client
-    startCommand: npm start --prefix server
+    # NODE_ENV is set here, not in envVars: as a build-time env var it would make
+    # npm ci skip devDependencies, and Vite is a devDependency.
+    startCommand: NODE_ENV=production npm start --prefix server
     envVars:
-      - key: NODE_ENV
-        value: production
       # Render generates and stores this, so sessions survive a cold start
       # instead of every restart invalidating every signed-in user.
       - key: JWT_SECRET
