@@ -1,0 +1,18 @@
+{
+  "name": "interniq",
+  "private": true,
+  "version": "1.0.0",
+  "description": "InternIQ - AI-assisted career and internship matching platform for St. Mary's University (senior project prototype)",
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:mobile": "concurrently -n api,web -c cyan,magenta \"npm run dev --prefix server\" \"npm run dev:mobile --prefix client\"",
+    "db:reset": "npm run db:reset --prefix server",
+    "smoke": "npm run smoke --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

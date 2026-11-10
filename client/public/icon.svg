@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="InternIQ - St. Mary's University">
+  <rect width="512" height="512" fill="#b41118"/>
+  <g transform="translate(111 84) scale(4.526)">
+    <path d="M32 3 58 11v27c0 18-12 30-26 35C18 68 6 56 6 38V11L32 3z" fill="#ffd202" stroke="#8d0d13" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M32 14V8M22.5 17.5l-4-4.5M41.5 17.5l4-4.5M14 27H8M50 27h6" stroke="#8d0d13" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <path d="M23 30a9 9 0 0 1 18 0z" fill="#8d0d13"/>
+    <path d="M15 40c6-3 12-3 17 1 5-4 11-4 17-1v16c-6-3-12-3-17 1-5-4-11-4-17-1z" fill="#fff" stroke="#8d0d13" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M32 41v16" stroke="#8d0d13" stroke-width="1.4"/>
+  </g>
+</svg>

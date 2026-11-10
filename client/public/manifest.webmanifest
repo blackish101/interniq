@@ -1,0 +1,25 @@
+{
+  "name": "InternIQ - St. Mary's University Career & Internship Matching",
+  "short_name": "InternIQ",
+  "description": "Prototype internship matching platform for St. Mary's University: CV reading, explainable compatibility scores, employer screening and Career Services oversight.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#f5f4f2",
+  "theme_color": "#b41118",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Find internships", "short_name": "Search", "url": "/internships", "description": "The opportunity feed, ranked by match score" },
+    { "name": "My applications", "short_name": "Applications", "url": "/applications", "description": "Track status through the placement pipeline" },
+    { "name": "CV Studio", "short_name": "CV Studio", "url": "/me", "description": "Upload a CV and review extracted skills" }
+  ]
+}

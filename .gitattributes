@@ -1,0 +1,8 @@
+# Normalise to LF in the repository so a Linux build host (Render) and this
+# Windows checkout produce identical file hashes and clean diffs.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.docx binary

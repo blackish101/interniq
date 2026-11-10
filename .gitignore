@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output (Render rebuilds from source)
+dist/
+
+# the embedded Postgres cluster and the local JWT secret
+server/data/
+
+# environment overrides and logs
+.env
+.env.*
+*.log
+npm-debug.log*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
