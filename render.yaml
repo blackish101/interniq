@@ -6,7 +6,7 @@ services:
     name: interniq
     runtime: node
     plan: free
-    region: singapore
+    region: frankfurt
     branch: main
     healthCheckPath: /api/health
     autoDeploy: true
