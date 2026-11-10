@@ -4,7 +4,8 @@ import { fileURLToPath } from 'node:url';
 import { PGlite } from '@electric-sql/pglite';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-export const DB_DIR = path.join(here, '..', 'data', 'pgdata');
+// Overridable so a cold boot (schema + seed) can be tested without touching the live cluster.
+export const DB_DIR = process.env.INTERNIQ_DB_DIR || path.join(here, '..', 'data', 'pgdata');
 const SCHEMA = path.join(here, '..', 'db', 'schema.sql');
 
 let db;

@@ -43,7 +43,19 @@ app.use(cors({ origin: true }));
 app.use(express.json({ limit: '12mb' }));
 app.use(express.urlencoded({ extended: true, limit: '12mb' }));
 
-app.get('/api/health', (req, res) => res.json({ ok: true, service: 'InternIQ API', time: new Date().toISOString() }));
+app.get('/api/health', (req, res) => res.json({
+  ok: true,
+  service: 'InternIQ API',
+  status: dbReady ? 'ready' : 'starting',
+  time: new Date().toISOString(),
+}));
+
+// A cold boot on a shared CPU takes minutes, not seconds. Requests that arrive during
+// it wait for the database instead of hitting an empty cluster and erroring.
+app.use('/api', (req, res, next) => {
+  if (dbReady) return next();
+  ready.then(() => next(), () => res.status(503).json({ error: 'Database startup failed' }));
+});
 
 app.use('/api/auth', auth);
 app.use('/api/internships', internships);
@@ -69,11 +81,16 @@ if (fs.existsSync(clientDist)) {
 
 app.use((err, req, res, _next) => sendError(err, res));
 
-prepareDatabase()
+let dbReady = false;
+const ready = prepareDatabase()
   .then(() => {
-    app.listen(PORT, () => console.log(`[interniq] API listening on http://localhost:${PORT}`));
+    dbReady = true;
+    console.log('[interniq] database ready');
   })
   .catch((err) => {
-    console.error('[interniq] failed to start', err);
+    console.error('[interniq] failed to prepare database', err);
     process.exit(1);
   });
+
+// Bind immediately so the platform sees a live process; readiness is reported by /api/health.
+app.listen(PORT, () => console.log(`[interniq] API listening on http://localhost:${PORT}`));
